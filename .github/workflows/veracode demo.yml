@@ -40,7 +40,7 @@ jobs:
         uses: veracode/veracode-uploadandscan-action@master # Faz a analise da Veracode
         env:
           VeracodeID: ${{ secrets.VERACODEID }} # Lembrar de criar as credenciais no Secrets
-          VeracodeKey: ${{ secrets.VERACODEKey }}
+          VeracodeKey: ${{ secrets.VERACODEKEY }}
           AppName: ${{ github.repository }}
         with:
           vid: '$VeracodeID'
@@ -84,14 +84,14 @@ jobs:
       - name: Download Policy
         env:
           VID: ${{ secrets.VERACODEID }} # Lembrar de criar as credenciais no Secrets
-          VKEY: ${{ secrets.VERACODEKey }}
+          VKEY: ${{ secrets.VERACODEKEY }}
           VeracodePolicyName: ${{ secrets.VeracodePolicyName }}
         run: |
           java -jar pipeline-scan.jar -vid $VID -vkey $VKEY -rp="$VeracodePolicyName"
       - name: Veracode Pipeline Scan
         env:
           VID: ${{ secrets.VERACODEID }} # Lembrar de criar as credenciais no Secrets
-          VKEY: ${{ secrets.VERACODEKey }}
+          VKEY: ${{ secrets.VERACODEKEY }}
           CaminhoArquivo: './veracode.zip'
           VeracodePolicyName: ${{ secrets.VeracodePolicyName }}
         run: |
