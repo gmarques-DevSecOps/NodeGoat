@@ -13,7 +13,7 @@ jobs:
           filename: 'veracode.zip'
           path: .
       - name: Publicando Artefato
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: pacoteVeracode
           path: veracode.zip
@@ -33,7 +33,7 @@ jobs:
     needs: Package
     steps:
       - name: Download Artefato
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4
         with:
           name: pacoteVeracode
       - name: UploadAndScan
@@ -56,7 +56,7 @@ jobs:
     needs: Package
     steps:
       - name: Download Artefato
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4
         with:
           name: pacoteVeracode
       - name: Veracode Pipeline Scan
@@ -74,7 +74,7 @@ jobs:
     needs: Package
     steps:
       - name: Download Artefato
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4
         with:
           name: pacoteVeracode
       - name: Download Pipeline Scan
