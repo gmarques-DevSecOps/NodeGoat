@@ -43,8 +43,8 @@ jobs:
           VeracodeKey: ${{ secrets.VERACODEKEY }}
           AppName: ${{ github.repository }}
         with:
-          vid: '$VeracodeID'
-          vkey: '$VeracodeKey'
+          vid: '$VERACODEID'
+          vkey: '$VERACODEKEY'
           criticality: 'VeryHigh'
           appname: '$AppName'
           scantimeout: 30
